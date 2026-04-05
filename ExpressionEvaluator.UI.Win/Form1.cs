@@ -9,7 +9,7 @@ namespace ExpressionEvaluator.UI.Win
             InitializeComponent();
         }
 
-        // Números
+        // Numbers
         private void btn0_Click(object sender, EventArgs e) => txtDisplay.Text += "0";
         private void btn1_Click(object sender, EventArgs e) => txtDisplay.Text += "1";
         private void btn2_Click(object sender, EventArgs e) => txtDisplay.Text += "2";
@@ -21,7 +21,7 @@ namespace ExpressionEvaluator.UI.Win
         private void btn8_Click(object sender, EventArgs e) => txtDisplay.Text += "8";
         private void btn9_Click(object sender, EventArgs e) => txtDisplay.Text += "9";
 
-        // Operadores
+        // Operators
         private void btnPlus_Click(object sender, EventArgs e) => txtDisplay.Text += "+";
         private void btnMinus_Click(object sender, EventArgs e) => txtDisplay.Text += "-";
         private void btnMultiply_Click(object sender, EventArgs e) => txtDisplay.Text += "*";
@@ -30,27 +30,26 @@ namespace ExpressionEvaluator.UI.Win
         private void btnOpenParenthesis_Click(object sender, EventArgs e) => txtDisplay.Text += "(";
         private void btnCloseParenthesis_Click(object sender, EventArgs e) => txtDisplay.Text += ")";
 
-        // Punto decimal
+        // Decimal point
         private void btnDot_Click(object sender, EventArgs e)
         {
-            // Evitar múltiples puntos en el mismo número
-            string texto = txtDisplay.Text;
-            string[] partes = texto.Split('+', '-', '*', '/', '^');
-            string ultimoNumero = partes[partes.Length - 1];
+            string text = txtDisplay.Text;
+            string[] parts = text.Split('+', '-', '*', '/', '^');
+            string lastNumber = parts[parts.Length - 1];
 
-            if (!ultimoNumero.Contains("."))
+            if (!lastNumber.Contains("."))
             {
                 txtDisplay.Text += ".";
             }
         }
 
-        // Limpiar todo
+        // Clear all
         private void btnClear_Click(object sender, EventArgs e)
         {
             txtDisplay.Text = "";
         }
 
-        // Borrar último carácter
+        // Delete last character
         private void btnDelete_Click(object sender, EventArgs e)
         {
             if (txtDisplay.Text.Length > 0)
@@ -59,13 +58,13 @@ namespace ExpressionEvaluator.UI.Win
             }
         }
 
-        // Evaluar resultado
+        // Evaluate expression
         private void btnResult_Click(object sender, EventArgs e)
         {
             try
             {
-                double resultado = Evaluator.Evaluate(txtDisplay.Text);
-                txtDisplay.Text = $"{txtDisplay.Text} = {resultado}";
+                double result = Evaluator.Evaluate(txtDisplay.Text);
+                txtDisplay.Text = $"{txtDisplay.Text} = {result}";
             }
             catch (Exception)
             {
