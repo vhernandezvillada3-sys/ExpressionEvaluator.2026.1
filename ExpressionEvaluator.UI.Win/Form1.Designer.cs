@@ -61,7 +61,6 @@
             txtDisplay.Name = "txtDisplay";
             txtDisplay.Size = new Size(400, 39);
             txtDisplay.TabIndex = 0;
-            txtDisplay.TextChanged += txtDisplay_TextChanged;
             // 
             // btn7
             // 
@@ -334,7 +333,6 @@
             Controls.Add(txtDisplay);
             Name = "Form1";
             Text = "Function Evaluator";
-            Load += Form1_Load;
             ResumeLayout(false);
             PerformLayout();
         }
